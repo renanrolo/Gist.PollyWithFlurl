@@ -56,7 +56,7 @@ namespace Gist.PollyWithFlurl
                 var collection = await Policy.Handle<FlurlHttpException>(ShouldTryAgain)
                                             .WaitAndRetryAsync(2, i =>
                                             {
-                                                Console.WriteLine($"Erro on request. Try number '{i}'");
+                                                Console.WriteLine($"Error on request. Try number '{i}'");
                                                 return TimeSpan.FromSeconds(5);
                                             })
                                             .ExecuteAsync(() =>
